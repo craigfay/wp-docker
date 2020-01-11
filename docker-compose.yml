@@ -23,8 +23,6 @@ services:
             - code-network
 
     php:
-        depends_on:
-            - db
         build:
             context: .
         volumes:
