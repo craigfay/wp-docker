@@ -15,3 +15,4 @@ wp config create \
     --skip-check \
     --force
 
+wp db check
