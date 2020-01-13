@@ -1,11 +1,6 @@
+rm -rf /var/www/html/*
 
-
-wp core install \
-    --url=wordpress \
-    --title=wordpress \
-    --admin_user=admin \
-    --admin_password=admin \
-    --admin_email=admin@admin.com
+wp core download
 
 wp config create \
     --dbhost=db \
@@ -14,5 +9,12 @@ wp config create \
     --dbpass=wordpress \
     --skip-check \
     --force
+
+wp core install \
+    --url=localhost \
+    --title=localhost \
+    --admin_user=admin \
+    --admin_password=admin \
+    --admin_email=admin@admin.com
 
 wp db check
