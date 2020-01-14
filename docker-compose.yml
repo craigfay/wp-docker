@@ -1,6 +1,5 @@
 version: '3'
 services:
-
     db:
         image: mysql:5.7
         restart: always
@@ -22,26 +21,12 @@ services:
         networks:
             - code-network
 
-    php:
-        build:
-            context: .
+    wordpress:
+        image: wordpress:php7.2-fpm
         volumes:
             - ./html:/var/www/html
         networks:
             - code-network
-
-    wp_cli:
-        depends_on:
-            - nginx
-            - php
-            - db
-        image: wordpress:cli
-        volumes:
-            - ./html:/var/www/html
-            - ./wp_cli/scripts:/scripts
-        networks:
-            - code-network
-        command: /scripts/run.sh
 
 networks:
     code-network:
